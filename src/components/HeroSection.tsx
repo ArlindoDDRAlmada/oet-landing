@@ -2,8 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Code, Zap, Shield } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import oetLogo from "/oet-logo.jpg";
-import ononoTech from "/OnonoTech.png";
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -109,7 +107,7 @@ const HeroSection = () => {
                 className="flex items-center space-x-3 mb-6"
               >
                 <img
-                  src={oetLogo}
+                  src="/oet-logo.jpg"
                   alt="OET Logo"
                   className="h-16 w-auto object-contain bg-white/10 backdrop-blur-sm rounded-lg p-2"
                 />
@@ -221,7 +219,7 @@ const HeroSection = () => {
                 {/* Background Technology Image */}
                 <div className="relative w-full h-[600px] rounded-3xl overflow-hidden">
                   <img
-                    src={ononoTech}
+                    src="/OnonoTech.png"
                     alt="Technology in Africa - Angola"
                     className="w-full h-full object-cover"
                   />
