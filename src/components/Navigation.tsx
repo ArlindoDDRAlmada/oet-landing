@@ -49,7 +49,7 @@ const Navigation = () => {
             className="flex items-center space-x-3"
           >
             <img
-              src="/oet-logo.jpg"
+              src={oetLogo}
               alt="OET Logo"
               className="h-10 w-auto object-contain"
             />

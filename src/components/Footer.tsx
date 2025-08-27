@@ -14,6 +14,7 @@ import {
   Heart,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import oetLogo from "../assets/oet-logo.jpg";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -107,7 +108,7 @@ const Footer = () => {
               >
                 <div className="flex items-center space-x-3 mb-6">
                   <img
-                    src="/oet-logo.jpg"
+                    src={oetLogo}
                     alt="OET Logo"
                     className="h-12 w-auto object-contain bg-white/10 backdrop-blur-sm rounded-lg p-2"
                   />
