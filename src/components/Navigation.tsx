@@ -58,11 +58,8 @@ const Navigation = () => {
               <img
                 src="/oet-logo.jpg"
                 alt="OET Logo"
-                className="h-10 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
-              <div className="text-xl font-bold">
-                <span className="text-oet-green-600">ONONO</span>
-              </div>
             </motion.div>
           </Link>
 

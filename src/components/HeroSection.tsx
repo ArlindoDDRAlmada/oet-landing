@@ -102,38 +102,18 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-white"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex items-center space-x-3 mb-6"
-              >
-                <img
-                  src="/oet-logo.jpg"
-                  alt="OET Logo"
-                  className="h-16 w-auto object-contain bg-white/10 backdrop-blur-sm rounded-lg p-2"
-                />
-                <div>
-                  <h1 className="text-2xl font-bold">
-                    <span className="text-oet-green-400">ONONO</span>
-                  </h1>
-                  <p
-                    className="text-sm text-gray-300 uppercase tracking-wider"
-                    suppressHydrationWarning={true}
-                  >
-                    {t("hero.subtitle")}
-                  </p>
-                </div>
-              </motion.div>
-
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+                suppressHydrationWarning={true}
               >
                 {t("hero.title")}{" "}
-                <span className="bg-gradient-oet bg-clip-text text-transparent">
+                <span
+                  className="bg-gradient-oet bg-clip-text text-transparent"
+                  suppressHydrationWarning={true}
+                >
                   {t("hero.titleHighlight")}
                 </span>
               </motion.h2>
@@ -143,6 +123,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
                 className="text-xl text-gray-300 mb-8 leading-relaxed"
+                suppressHydrationWarning={true}
               >
                 {t("hero.description")}
               </motion.p>

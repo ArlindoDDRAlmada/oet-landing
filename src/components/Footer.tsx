@@ -107,20 +107,13 @@ const Footer = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center space-x-3 mb-6">
-                  <img
-                    src="/oet-logo.jpg"
-                    alt="OET Logo"
-                    className="h-12 w-auto object-contain bg-white/10 backdrop-blur-sm rounded-lg p-2"
-                  />
-                  <div>
-                    <h3 className="text-xl font-bold">
-                      <span className="text-oet-green-400">ONONO</span>
-                    </h3>
-                    <p className="text-xs text-gray-400 uppercase tracking-wider">
-                      {t("hero.subtitle")}
-                    </p>
-                  </div>
+                <div className="mb-6">
+                  <h3 className="text-xl font-bold">
+                    <span className="text-oet-green-400">ONONO</span>
+                  </h3>
+                  <p className="text-xs text-gray-400 uppercase tracking-wider">
+                    {t("hero.subtitle")}
+                  </p>
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">
                   {t("footer.description")}
