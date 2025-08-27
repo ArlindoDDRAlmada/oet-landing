@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useTranslation } from "react-i18next";
 
@@ -17,6 +19,7 @@ const LanguageSwitcher = () => {
             ? "bg-oet-green-500 text-white"
             : "bg-gray-200 text-gray-700"
         }`}
+        suppressHydrationWarning={true}
       >
         PT
       </button>
@@ -27,6 +30,7 @@ const LanguageSwitcher = () => {
             ? "bg-oet-green-500 text-white"
             : "bg-gray-200 text-gray-700"
         }`}
+        suppressHydrationWarning={true}
       >
         EN
       </button>

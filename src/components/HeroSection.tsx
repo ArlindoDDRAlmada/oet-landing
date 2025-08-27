@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Code, Zap, Shield } from "lucide-react";
@@ -115,7 +117,10 @@ const HeroSection = () => {
                   <h1 className="text-2xl font-bold">
                     <span className="text-oet-green-400">ONONO</span>
                   </h1>
-                  <p className="text-sm text-gray-300 uppercase tracking-wider">
+                  <p
+                    className="text-sm text-gray-300 uppercase tracking-wider"
+                    suppressHydrationWarning={true}
+                  >
                     {t("hero.subtitle")}
                   </p>
                 </div>

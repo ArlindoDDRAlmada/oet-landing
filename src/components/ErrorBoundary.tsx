@@ -1,8 +1,10 @@
-import React from 'react';
+"use client";
+
+import React from "react";
 
 const searilizeError = (error: any) => {
   if (error instanceof Error) {
-    return error.message + '\n' + error.stack;
+    return error.message + "\n" + error.stack;
   }
   return JSON.stringify(error, null, 2);
 };

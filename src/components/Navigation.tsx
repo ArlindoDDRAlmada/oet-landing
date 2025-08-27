@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from "react";
+"use client";
+
+import React, { useState, useEffect, useMemo } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -18,12 +21,15 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { name: t("nav.home"), href: "#home" },
-    { name: t("nav.about"), href: "#about" },
-    { name: t("nav.services"), href: "#services" },
-    { name: t("nav.contact"), href: "#contact" },
-  ];
+  const navItems = useMemo(
+    () => [
+      { name: t("nav.home"), href: "#home" },
+      { name: t("nav.about"), href: "#about" },
+      { name: t("nav.services"), href: "#services" },
+      { name: t("nav.contact"), href: "#contact" },
+    ],
+    [t]
+  );
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -44,19 +50,21 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-3"
-          >
-            <img
-              src="/oet-logo.jpg"
-              alt="OET Logo"
-              className="h-10 w-auto object-contain"
-            />
-            <div className="text-xl font-bold">
-              <span className="text-oet-green-600">ONONO</span>
-            </div>
-          </motion.div>
+          <Link href="/">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center space-x-3 cursor-pointer"
+            >
+              <img
+                src="/oet-logo.jpg"
+                alt="OET Logo"
+                className="h-10 w-auto object-contain"
+              />
+              <div className="text-xl font-bold">
+                <span className="text-oet-green-600">ONONO</span>
+              </div>
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -67,6 +75,7 @@ const Navigation = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection(item.href)}
                 className="text-gray-700 hover:text-oet-green-600 transition-colors font-medium"
+                suppressHydrationWarning={true}
               >
                 {item.name}
               </motion.button>
@@ -76,6 +85,7 @@ const Navigation = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("#contact")}
               className="bg-gradient-oet text-white px-6 py-2 rounded-full hover:shadow-lg transition-all"
+              suppressHydrationWarning={true}
             >
               {t("nav.getStarted")}
             </motion.button>
@@ -111,6 +121,7 @@ const Navigation = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection(item.href)}
                 className="block w-full text-left text-gray-700 hover:text-oet-green-600 transition-colors font-medium py-2"
+                suppressHydrationWarning={true}
               >
                 {item.name}
               </motion.button>
@@ -119,6 +130,7 @@ const Navigation = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("#contact")}
               className="w-full bg-gradient-oet text-white px-6 py-3 rounded-full hover:shadow-lg transition-all text-center"
+              suppressHydrationWarning={true}
             >
               {t("nav.getStarted")}
             </motion.button>
