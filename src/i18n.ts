@@ -112,7 +112,7 @@ i18n
                         value4Desc: 'Transforming the Angolan technological landscape.',
                         stat1: 'Commitment to Quality',
                         stat2: 'Support Available',
-                        stat3: 'Founded',
+                        stat3: 'PhD Level Team',
                         stat4: 'Innovation Potential',
                     },
                     footer: {
@@ -376,7 +376,7 @@ i18n
                         value4Desc: 'Transformando o cenário tecnológico angolano.',
                         stat1: 'Compromisso com Qualidade',
                         stat2: 'Suporte Disponível',
-                        stat3: 'PhD level Team',
+                        stat3: 'Nível do team, Doutoramento',
                         stat4: 'Potencial de Inovação',
                     },
                     footer: {
