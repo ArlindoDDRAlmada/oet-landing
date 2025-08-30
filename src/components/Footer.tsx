@@ -362,7 +362,7 @@ const Footer = () => {
                 onClick={scrollToTop}
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 bg-gradient-oet rounded-full flex items-center justify-center hover:shadow-lg transition-all"
+                className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center hover:shadow-lg transition-all text-white"
               >
                 <ArrowUp className="w-5 h-5" />
               </motion.button>

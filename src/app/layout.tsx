@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "OnonoTech - OET",
   description: "OnonoTech - OET, Lda",
+  icons: {
+    icon: "/OnonoTech.png",
+    shortcut: "/OnonoTech.png",
+    apple: "/OnonoTech.png",
+  },
 };
 
 export default function RootLayout({
