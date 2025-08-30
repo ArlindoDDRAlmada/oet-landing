@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   Code,
   Cloud,
@@ -19,7 +19,19 @@ import { useTranslation } from "react-i18next";
 const ServicesSection = () => {
   const { t } = useTranslation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [fallbackVisible, setFallbackVisible] = useState(false);
+
+  // Fallback for when framer-motion fails
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFallbackVisible(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Always call useInView hook
+  const isInView =
+    useInView(ref, { once: true, amount: 0.1 }) || fallbackVisible;
 
   const services = [
     {
@@ -108,28 +120,33 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-slate-50" ref={ref}>
+    <section
+      id="services"
+      className="py-12 sm:py-16 lg:py-20 bg-slate-50"
+      ref={ref}
+      style={{ minHeight: "50vh", display: "block" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
             {t("services.title")}{" "}
             <span className="bg-gradient-oet bg-clip-text text-transparent">
               {t("services.titleHighlight")}
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
             {t("services.description")}
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {services.map((service, index) => {
             const Icon = service.icon;
             const isEven = index % 2 === 0;
@@ -138,13 +155,13 @@ const ServicesSection = () => {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="group"
               >
                 <div className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                   {/* Service Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-40 sm:h-48 overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.title}
@@ -159,16 +176,16 @@ const ServicesSection = () => {
                   </div>
 
                   {/* Service Content */}
-                  <div className="p-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-oet-green-600 transition-colors">
+                  <div className="p-4 sm:p-6 lg:p-8">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-oet-green-600 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">
                       {service.description}
                     </p>
 
                     {/* Features */}
-                    <div className="mb-6">
+                    <div className="mb-4 sm:mb-6">
                       <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wider">
                         {t("services.keyFeatures")}
                       </h4>
@@ -188,7 +205,7 @@ const ServicesSection = () => {
                     </div>
 
                     {/* Technologies */}
-                    <div className="mb-6">
+                    <div className="mb-4 sm:mb-6">
                       <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wider">
                         {t("services.technologies")}
                       </h4>
@@ -223,15 +240,15 @@ const ServicesSection = () => {
         {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="text-center mt-16"
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-center mt-8 sm:mt-12 lg:mt-16"
         >
-          <div className="bg-gradient-oet rounded-3xl p-8 md:p-12 text-white">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="bg-gradient-oet rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-white">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
               {t("services.ctaTitle")}
             </h3>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-lg sm:text-xl mb-6 sm:mb-8 opacity-90">
               {t("services.ctaDescription")}
             </p>
             <motion.button

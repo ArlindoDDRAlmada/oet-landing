@@ -229,19 +229,21 @@ const Footer = () => {
             <p className="text-white/80 mb-6">
               {t("footer.newsletterDescription")}
             </p>
-            <div className="max-w-md mx-auto flex gap-3">
-              <input
-                type="email"
-                placeholder={t("footer.newsletterPlaceholder")}
-                className="flex-1 px-4 py-3 rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:shadow-lg transition-all"
-              >
-                {t("footer.subscribe")}
-              </motion.button>
+            <div className="max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  placeholder={t("footer.newsletterPlaceholder")}
+                  className="flex-1 px-4 py-3 rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                />
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:shadow-lg transition-all whitespace-nowrap"
+                >
+                  {t("footer.subscribe")}
+                </motion.button>
+              </div>
             </div>
           </div>
         </motion.div>
